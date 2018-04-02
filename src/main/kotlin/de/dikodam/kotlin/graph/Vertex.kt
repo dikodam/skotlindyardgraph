@@ -1,3 +1,3 @@
 package de.dikodam.kotlin.graph
 
-class Vertex{}
+data class Vertex(val id: Int)
