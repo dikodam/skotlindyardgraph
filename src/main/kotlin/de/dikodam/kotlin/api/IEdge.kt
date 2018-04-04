@@ -1,6 +1,6 @@
 package de.dikodam.kotlin.api
 
 interface IEdge {
-    fun getVertices()
-    fun getOtherVertexThan()
+    val vertices: Set<IVertex>
+    fun getOtherVertex(notThis: IVertex): IVertex
 }
