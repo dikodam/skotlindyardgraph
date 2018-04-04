@@ -1,6 +1,6 @@
 package de.dikodam.kotlin.api
 
 interface IVertex {
-    fun getEdges(): List<IEdge>
-    fun getEdgesOfType(edgeType: EdgeType): List<IEdge>
+    var edges: Set<IEdge>
+    fun getEdgesOfType(edgeType: EdgeType): Set<IEdge>
 }
