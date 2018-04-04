@@ -1,6 +1,5 @@
 package de.dikodam.kotlin.api
 
-import de.dikodam.kotlin.graph.Move
 import de.dikodam.kotlin.graph.Vertex
 
 interface IGraph {

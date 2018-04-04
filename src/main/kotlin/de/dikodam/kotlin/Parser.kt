@@ -1,7 +1,7 @@
 package de.dikodam.kotlin
 
 import de.dikodam.kotlin.graph.Edge
-import de.dikodam.kotlin.graph.EdgeType
+import de.dikodam.kotlin.api.EdgeType
 import de.dikodam.kotlin.graph.Graph
 import de.dikodam.kotlin.graph.Vertex
 import java.io.File

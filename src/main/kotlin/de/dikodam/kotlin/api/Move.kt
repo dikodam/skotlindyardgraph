@@ -1,4 +1,4 @@
-package de.dikodam.kotlin.graph
+package de.dikodam.kotlin.api
 
 enum class Move {
     TAXI,
