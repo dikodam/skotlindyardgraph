@@ -5,7 +5,7 @@ import de.dikodam.kotlin.api.IEdge
 import de.dikodam.kotlin.api.IVertex
 import java.lang.IllegalArgumentException
 
-data class Edge(val type: EdgeType, private val vertex1: IVertex, private val vertex2: IVertex) : IEdge {
+data class Edge(override val type: EdgeType, private val vertex1: IVertex, private val vertex2: IVertex) : IEdge {
     override val vertices: Set<IVertex> = setOf(vertex1, vertex2)
 
     override fun getOtherVertex(notThis: IVertex): IVertex =
