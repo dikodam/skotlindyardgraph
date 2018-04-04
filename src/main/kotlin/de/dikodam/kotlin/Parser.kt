@@ -8,34 +8,37 @@ import java.io.File
 import java.util.stream.Collectors
 
 
+typealias EdgeInfo = Triple<EdgeType, Int, Int>
+
 fun buildGraph(): Graph {
-    val fileAdress = Thread.currentThread().contextClassLoader.getResource("scotlandYardGraph").file
-    val graphInput = readGraphFromFile(fileAdress)
-    parseInputLines(graphInput)
+    val adress = Thread.currentThread().contextClassLoader.getResource("scotlandYardGraph").file
+    val file = File(adress)
+    val edgeInfos = readLinesFromFile(file).map { extractEdgeInfoFromLine(it) }
+    val vertices = extractVertices(edgeInfos)
+    val edges = buildEdges(edgeInfos, vertices)
+
     return Graph()
 }
 
-fun readGraphFromFile(fileName: String): List<String> = File(fileName)
-    .bufferedReader()
-    .lines()
-    .collect(Collectors.toList())
+fun readLinesFromFile(file: File): List<String> =
+    file.bufferedReader()
+        .lines()
+        .collect(Collectors.toList())
 
-fun parseInputLines(inputLines: List<String>) {
-    val vertices = inputLines
-        .flatMap { extractVertices(it) }
-    val edges = inputLines
-        .map { extractEdgeFromLine(it) }
-}
-
-fun extractEdgeFromLine(line: String): Edge {
-    // TODO
-}
-
-fun extractVertices(line: String): List<Vertex> =
+fun extractEdgeInfoFromLine(line: String): EdgeInfo =
     EdgeType.values()
-        .flatMap { edgeType -> parseLineWithEdgeType(line, edgetype = edgeType.singleChar) }
-        .map { Vertex(it.toInt()) }
-        .distinct()
+        .filter { line.contains(it.singleChar) }
+        .map {
+            val vertices = line.split(it.singleChar).map { it.toInt() }
+            return EdgeInfo(it, vertices[0], vertices[1])
+        }
+        .first()
 
-fun parseLineWithEdgeType(line: String, edgetype: String): List<String> =
-    if (line.contains(edgetype)) line.split(edgetype) else emptyList()
+fun extractVertices(edgeInfos: List<EdgeInfo>): Map<Int, Vertex> =
+    edgeInfos.flatMap { listOf(it.second, it.third) }
+        .distinct()
+        .map { Pair(it, Vertex(it)) }
+        .toMap()
+
+fun buildEdges(edgeInfos: List<EdgeInfo>, vertices: Map<Int, Vertex>): List<Edge> =
+    edgeInfos.map { Edge(it.first, vertices.getValue(it.second), vertices.getValue(it.third)) }
