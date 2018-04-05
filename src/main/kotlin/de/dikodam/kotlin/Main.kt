@@ -1,6 +1,7 @@
 package de.dikodam.kotlin
 
 fun main(args: Array<String>) {
-    buildGraph()
+    val graph = buildGraph()
+
 }
 

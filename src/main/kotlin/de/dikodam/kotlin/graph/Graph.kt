@@ -4,7 +4,6 @@ import de.dikodam.kotlin.api.*
 import de.dikodam.kotlin.api.Move.*
 
 class Graph(override val vertices: Map<Int, IVertex>, val edges: Set<IEdge>) : IGraph {
-
     override fun getNeighborsOf(vertex: IVertex): Set<IVertex> {
         return vertex.edges
             .map { edge -> edge.getOtherVertex(vertex) }
@@ -21,10 +20,13 @@ class Graph(override val vertices: Map<Int, IVertex>, val edges: Set<IEdge>) : I
     override fun getVerticesAfterMoveSequence(startVertex: IVertex, moves: List<Move>): Set<IVertex> {
         var vertices = listOf(startVertex)
         for (move in moves) {
-            vertices.flatMap { vertex -> getNeighborsWithMove(vertex, move) }
+            vertices = vertices.flatMap { vertex -> getNeighborsWithMove(vertex, move) }
         }
         return vertices.distinct().toSet()
     }
+
+    override fun vertexAt(id: Int): IVertex =
+        vertices.getValue(id)
 
     private fun IEdge.isAllowedByMove(move: Move): Boolean {
         return when (move) {

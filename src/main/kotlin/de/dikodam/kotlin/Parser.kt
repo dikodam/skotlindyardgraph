@@ -1,7 +1,7 @@
 package de.dikodam.kotlin
 
-import de.dikodam.kotlin.graph.Edge
 import de.dikodam.kotlin.api.EdgeType
+import de.dikodam.kotlin.graph.Edge
 import de.dikodam.kotlin.graph.Graph
 import de.dikodam.kotlin.graph.Vertex
 import java.io.File
@@ -15,9 +15,9 @@ fun buildGraph(): Graph {
     val file = File(adress)
     val edgeInfos = readLinesFromFile(file).map { extractEdgeInfoFromLine(it) }
     val vertices = extractVertices(edgeInfos)
-    val edges = buildEdges(edgeInfos, vertices)
+    val edges = buildEdges(edgeInfos, vertices).toSet()
 
-    return Graph()
+    return Graph(vertices, edges)
 }
 
 fun readLinesFromFile(file: File): List<String> =
