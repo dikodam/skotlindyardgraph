@@ -3,14 +3,15 @@ package de.dikodam.kotlin.graph
 import de.dikodam.kotlin.api.*
 import de.dikodam.kotlin.api.Move.*
 
-class Graph(override val vertices: Map<Int, IVertex>, val edges: Set<IEdge>) : IGraph {
+class Graph(override val vertices: Map<Int, IVertex>, override val edges: Set<IEdge>) : IGraph {
+
     override fun getNeighborsOf(vertex: IVertex): Set<IVertex> {
         return vertex.edges
             .map { edge -> edge.getOtherVertex(vertex) }
             .toSet()
     }
 
-    override fun getNeighborsWithMove(vertex: IVertex, move: Move): Set<IVertex> {
+    override fun getNeighborsAfterMove(vertex: IVertex, move: Move): Set<IVertex> {
         return vertex.edges
             .filter { edge -> edge.isAllowedByMove(move) }
             .map { edge -> edge.getOtherVertex(vertex) }
@@ -20,7 +21,7 @@ class Graph(override val vertices: Map<Int, IVertex>, val edges: Set<IEdge>) : I
     override fun getVerticesAfterMoveSequence(startVertex: IVertex, moves: List<Move>): Set<IVertex> {
         var vertices = listOf(startVertex)
         for (move in moves) {
-            vertices = vertices.flatMap { vertex -> getNeighborsWithMove(vertex, move) }
+            vertices = vertices.flatMap { vertex -> getNeighborsAfterMove(vertex, move) }
         }
         return vertices.distinct().toSet()
     }
@@ -36,6 +37,5 @@ class Graph(override val vertices: Map<Int, IVertex>, val edges: Set<IEdge>) : I
             BLACK -> true
         }
     }
-
 
 }
