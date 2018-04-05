@@ -93,6 +93,8 @@ internal class GraphIntegrationTest {
     @DisplayName("leerer Test")
     fun getVerticesAfterMoveSequence() {
         TODO()
+        // 2 or 3 steps
+        // impossible step -> emptySet
     }
 
 }
