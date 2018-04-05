@@ -11,6 +11,9 @@ class Graph(override val vertices: Map<Int, IVertex>, override val edges: Set<IE
             .toSet()
     }
 
+    override fun getNeighborsOf(vertexID: Int): Set<IVertex> =
+        getNeighborsOf(vertices.getValue(vertexID))
+
     override fun getNeighborsAfterMove(vertex: IVertex, move: Move): Set<IVertex> {
         return vertex.edges
             .filter { edge -> edge.isAllowedByMove(move) }
