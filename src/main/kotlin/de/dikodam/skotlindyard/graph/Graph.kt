@@ -36,9 +36,13 @@ class Graph(override val vertices: Map<Int, IVertex>, override val edges: Set<IE
         return when (move) {
             TAXI -> this.type == EdgeType.TAXI
             BUS -> this.type == EdgeType.BUS
-            METRO -> this.type == EdgeType.METRO
+            UNDERGROUND -> this.type == EdgeType.UNDERGROUND
             BLACK -> true
         }
+    }
+
+    override fun toString(): String {
+        return super.toString()
     }
 
 }

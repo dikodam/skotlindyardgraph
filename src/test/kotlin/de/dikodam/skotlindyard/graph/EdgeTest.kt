@@ -21,7 +21,7 @@ internal class EdgeTest {
     fun setUp() {
         dummyVertex1 = DummyVertex(1)
         dummyVertex2 = DummyVertex(2)
-        tested = Edge(EdgeType.METRO, dummyVertex1, dummyVertex2)
+        tested = Edge(EdgeType.UNDERGROUND, dummyVertex1, dummyVertex2)
     }
 
     @Test
@@ -51,13 +51,13 @@ internal class EdgeTest {
     fun getType() {
         val taxiEdge = Edge(EdgeType.TAXI, dummyVertex1, dummyVertex2)
         val busEdge = Edge(EdgeType.BUS, dummyVertex1, dummyVertex2)
-        val metroEdge = Edge(EdgeType.METRO, dummyVertex1, dummyVertex2)
+        val metroEdge = Edge(EdgeType.UNDERGROUND, dummyVertex1, dummyVertex2)
         val shipEdge = Edge(EdgeType.SHIP, dummyVertex1, dummyVertex2)
 
         assertAll(
             Executable { assertTrue(taxiEdge.type == EdgeType.TAXI) },
             Executable { assertTrue(busEdge.type == EdgeType.BUS) },
-            Executable { assertTrue(metroEdge.type == EdgeType.METRO) },
+            Executable { assertTrue(metroEdge.type == EdgeType.UNDERGROUND) },
             Executable { assertTrue(shipEdge.type == EdgeType.SHIP) }
         )
     }

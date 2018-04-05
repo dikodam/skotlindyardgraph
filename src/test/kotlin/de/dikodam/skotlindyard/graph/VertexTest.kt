@@ -27,7 +27,7 @@ internal class VertexTest {
     @Test
     @DisplayName("getter/setter: edges")
     fun getAndSetEdges() {
-        val injectedEdgeSet = setOf(DummyEdge(TAXI), DummyEdge(BUS), DummyEdge(METRO), DummyEdge(SHIP))
+        val injectedEdgeSet = setOf(DummyEdge(TAXI), DummyEdge(BUS), DummyEdge(UNDERGROUND), DummyEdge(SHIP))
         injectedEdgeSet.forEach { tested.addEdge(it) }
         assertEquals(tested.getAllEdges(), injectedEdgeSet)
     }
@@ -41,7 +41,7 @@ internal class VertexTest {
             DummyEdge(TAXI),
             DummyEdge(BUS),
             DummyEdge(BUS),
-            DummyEdge(METRO)
+            DummyEdge(UNDERGROUND)
         ).forEach { edge -> tested.addEdge(edge) }
 
 
@@ -56,8 +56,8 @@ internal class VertexTest {
     @Test
     fun getEdgeTypes() {
         tested.addEdge(DummyEdge(TAXI))
-        tested.addEdge(DummyEdge(METRO))
+        tested.addEdge(DummyEdge(UNDERGROUND))
 
-        assertThat(tested.getEdgeTypes(), containsInAnyOrder(TAXI, METRO))
+        assertThat(tested.getEdgeTypes(), containsInAnyOrder(TAXI, UNDERGROUND))
     }
 }

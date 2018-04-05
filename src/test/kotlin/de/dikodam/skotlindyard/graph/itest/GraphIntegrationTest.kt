@@ -45,9 +45,9 @@ internal class GraphIntegrationTest {
             edges = setOf(
                 Edge(EdgeType.TAXI, vertices.getValue(1), vertices.getValue(2)),
                 Edge(EdgeType.TAXI, vertices.getValue(2), vertices.getValue(3)),
-                Edge(EdgeType.METRO, vertices.getValue(3), vertices.getValue(6)),
+                Edge(EdgeType.UNDERGROUND, vertices.getValue(3), vertices.getValue(6)),
                 Edge(EdgeType.TAXI, vertices.getValue(5), vertices.getValue(6)),
-                Edge(EdgeType.METRO, vertices.getValue(5), vertices.getValue(4)),
+                Edge(EdgeType.UNDERGROUND, vertices.getValue(5), vertices.getValue(4)),
                 Edge(EdgeType.BUS, vertices.getValue(4), vertices.getValue(1)),
                 Edge(EdgeType.SHIP, vertices.getValue(2), vertices.getValue(5))
             )
