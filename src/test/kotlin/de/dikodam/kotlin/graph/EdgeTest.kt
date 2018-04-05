@@ -1,8 +1,8 @@
 package de.dikodam.kotlin.graph
 
 import de.dikodam.kotlin.api.EdgeType
-import de.dikodam.kotlin.api.IEdge
 import de.dikodam.kotlin.api.IVertex
+import de.dikodam.kotlin.graph.dummyclasses.TestVertex
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.containsInAnyOrder
 import org.junit.jupiter.api.Assertions.*
@@ -17,17 +17,11 @@ internal class EdgeTest {
     private lateinit var dummyVertex1: IVertex
     private lateinit var dummyVertex2: IVertex
 
-    class TestVertex : IVertex {
-        override lateinit var edges: Set<IEdge>
-        override fun getEdgesOfType(edgeType: EdgeType): Set<IEdge> {
-            return emptySet()
-        }
-    }
 
     @BeforeEach
     fun setUp() {
-        dummyVertex1 = TestVertex()
-        dummyVertex2 = TestVertex()
+        dummyVertex1 = TestVertex(1)
+        dummyVertex2 = TestVertex(2)
         tested = Edge(EdgeType.METRO, dummyVertex1, dummyVertex2)
     }
 
@@ -49,7 +43,7 @@ internal class EdgeTest {
     @Test
     @DisplayName("get other vertex yields exception")
     fun getOtherVertexException() {
-        val dummyVertex3 = TestVertex()
+        val dummyVertex3 = TestVertex(3)
         assertThrows(IllegalArgumentException().javaClass, { tested.getOtherVertex(dummyVertex3) })
     }
 
