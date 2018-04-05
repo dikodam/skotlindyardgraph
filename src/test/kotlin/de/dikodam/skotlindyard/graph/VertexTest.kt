@@ -2,6 +2,8 @@ package de.dikodam.skotlindyard.graph
 
 import de.dikodam.skotlindyard.api.EdgeType.*
 import de.dikodam.skotlindyard.graph.dummyclasses.DummyEdge
+import org.hamcrest.MatcherAssert.assertThat
+import org.hamcrest.Matchers.containsInAnyOrder
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
@@ -49,5 +51,13 @@ internal class VertexTest {
         for (edge in result) {
             assertEquals(edge.type, TAXI)
         }
+    }
+
+    @Test
+    fun getEdgeTypes() {
+        tested.addEdge(DummyEdge(TAXI))
+        tested.addEdge(DummyEdge(METRO))
+
+        assertThat(tested.getEdgeTypes(), containsInAnyOrder(TAXI, METRO))
     }
 }

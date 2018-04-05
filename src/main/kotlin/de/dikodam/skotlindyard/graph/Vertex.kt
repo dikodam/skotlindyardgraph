@@ -17,4 +17,10 @@ data class Vertex(override val id: Int) : IVertex {
     override fun getEdgesOfType(edgeType: EdgeType): Set<IEdge> =
         edges.filter { it.type == edgeType }.toSet()
 
+    override fun getEdgeTypes(): Set<EdgeType> {
+        return edges.map { it.type }
+            .distinct()
+            .toSet()
+    }
+
 }

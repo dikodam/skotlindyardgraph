@@ -89,6 +89,7 @@ internal class GraphIntegrationTest {
         assertAll(taxiMove, blackMove)
     }
 
+
     @Test
     @DisplayName("leerer Test")
     fun getVerticesAfterMoveSequence() {

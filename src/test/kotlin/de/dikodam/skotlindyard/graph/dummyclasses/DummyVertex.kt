@@ -16,4 +16,8 @@ class DummyVertex(override val id: Int) : IVertex {
     override fun getEdgesOfType(edgeType: EdgeType): Set<IEdge> {
         return emptySet()
     }
+
+    override fun getEdgeTypes(): Set<EdgeType> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 }
