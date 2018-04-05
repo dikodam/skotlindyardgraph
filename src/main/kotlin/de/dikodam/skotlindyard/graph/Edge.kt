@@ -8,6 +8,11 @@ import java.lang.IllegalArgumentException
 data class Edge(override val type: EdgeType, private val vertex1: IVertex, private val vertex2: IVertex) : IEdge {
     override val vertices: Set<IVertex> = setOf(vertex1, vertex2)
 
+    init {
+        vertex1.addEdge(this)
+        vertex2.addEdge(this)
+    }
+
     override fun getOtherVertex(notThis: IVertex): IVertex {
         return when (notThis) {
             vertex1 -> vertex2

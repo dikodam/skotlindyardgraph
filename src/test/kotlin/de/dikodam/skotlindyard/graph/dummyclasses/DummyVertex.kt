@@ -5,8 +5,14 @@ import de.dikodam.skotlindyard.api.IEdge
 import de.dikodam.skotlindyard.api.IVertex
 
 class DummyVertex(override val id: Int) : IVertex {
+    override fun addEdge(edge: IEdge): Boolean {
+        return true
+    }
 
-    override lateinit var edges: Set<IEdge>
+    override fun getAllEdges(): Set<IEdge> {
+        return emptySet()
+    }
+
     override fun getEdgesOfType(edgeType: EdgeType): Set<IEdge> {
         return emptySet()
     }

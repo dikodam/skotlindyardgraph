@@ -18,22 +18,6 @@ internal class GraphTest {
         12 to DummyVertex(12),
         42 to DummyVertex(42))
 
-
-    @Test
-    @DisplayName("leerer Test")
-    fun getNeighborsOf() {
-    }
-
-    @Test
-    @DisplayName("leerer Test")
-    fun getNeighborsWithMove() {
-    }
-
-    @Test
-    @DisplayName("leerer Test")
-    fun getVerticesAfterMoveSequence() {
-    }
-
     @Test
     @DisplayName("getter: one specific vertex")
     fun vertexAt() {

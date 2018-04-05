@@ -6,7 +6,7 @@ import de.dikodam.skotlindyard.api.Move.*
 class Graph(override val vertices: Map<Int, IVertex>, override val edges: Set<IEdge>) : IGraph {
 
     override fun getNeighborsOf(vertex: IVertex): Set<IVertex> {
-        return vertex.edges
+        return vertex.getAllEdges()
             .map { edge -> edge.getOtherVertex(vertex) }
             .toSet()
     }
@@ -15,7 +15,7 @@ class Graph(override val vertices: Map<Int, IVertex>, override val edges: Set<IE
         getNeighborsOf(vertices.getValue(vertexID))
 
     override fun getNeighborsAfterMove(vertex: IVertex, move: Move): Set<IVertex> {
-        return vertex.edges
+        return vertex.getAllEdges()
             .filter { edge -> edge.isAllowedByMove(move) }
             .map { edge -> edge.getOtherVertex(vertex) }
             .toSet()

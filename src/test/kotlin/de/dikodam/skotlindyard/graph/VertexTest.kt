@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test
 
 internal class VertexTest {
 
-    lateinit var tested: Vertex
+    private lateinit var tested: Vertex
 
     @BeforeEach
     fun setUp() {
@@ -26,21 +26,22 @@ internal class VertexTest {
     @DisplayName("getter/setter: edges")
     fun getAndSetEdges() {
         val injectedEdgeSet = setOf(DummyEdge(TAXI), DummyEdge(BUS), DummyEdge(METRO), DummyEdge(SHIP))
-        tested.edges = injectedEdgeSet
-        assertEquals(tested.edges, injectedEdgeSet)
+        injectedEdgeSet.forEach { tested.addEdge(it) }
+        assertEquals(tested.getAllEdges(), injectedEdgeSet)
     }
 
     @Test
     @DisplayName("getter: typed edges")
     fun getEdgesOfType() {
-        tested.edges = setOf(
+        setOf(
             DummyEdge(TAXI),
             DummyEdge(TAXI),
             DummyEdge(TAXI),
             DummyEdge(BUS),
             DummyEdge(BUS),
             DummyEdge(METRO)
-        )
+        ).forEach { edge -> tested.addEdge(edge) }
+
 
         val result = tested.getEdgesOfType(TAXI)
 
