@@ -1,7 +1,7 @@
-package de.dikodam.kotlin.graph
+package de.dikodam.skotlindyard.graph
 
-import de.dikodam.kotlin.api.EdgeType.*
-import de.dikodam.kotlin.graph.dummyclasses.DummyEdge
+import de.dikodam.skotlindyard.api.EdgeType.*
+import de.dikodam.skotlindyard.graph.dummyclasses.DummyEdge
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName

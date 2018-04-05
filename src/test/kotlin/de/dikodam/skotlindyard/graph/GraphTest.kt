@@ -1,13 +1,12 @@
-package de.dikodam.kotlin.graph
+package de.dikodam.skotlindyard.graph
 
-import de.dikodam.kotlin.api.EdgeType.BUS
-import de.dikodam.kotlin.api.EdgeType.TAXI
-import de.dikodam.kotlin.api.IGraph
-import de.dikodam.kotlin.graph.dummyclasses.DummyEdge
-import de.dikodam.kotlin.graph.dummyclasses.DummyVertex
+import de.dikodam.skotlindyard.api.EdgeType.BUS
+import de.dikodam.skotlindyard.api.EdgeType.TAXI
+import de.dikodam.skotlindyard.api.IGraph
+import de.dikodam.skotlindyard.graph.dummyclasses.DummyEdge
+import de.dikodam.skotlindyard.graph.dummyclasses.DummyVertex
 import org.junit.jupiter.api.Assertions.assertAll
 import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.function.Executable
@@ -19,14 +18,10 @@ internal class GraphTest {
         12 to DummyVertex(12),
         42 to DummyVertex(42))
 
-    @BeforeEach
-    fun setUp() {
-    }
 
     @Test
     @DisplayName("leerer Test")
     fun getNeighborsOf() {
-        tested.getNeighborsOf(tested.vertexAt(42))
     }
 
     @Test

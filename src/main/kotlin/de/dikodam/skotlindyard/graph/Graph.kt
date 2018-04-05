@@ -1,7 +1,7 @@
-package de.dikodam.kotlin.graph
+package de.dikodam.skotlindyard.graph
 
-import de.dikodam.kotlin.api.*
-import de.dikodam.kotlin.api.Move.*
+import de.dikodam.skotlindyard.api.*
+import de.dikodam.skotlindyard.api.Move.*
 
 class Graph(override val vertices: Map<Int, IVertex>, override val edges: Set<IEdge>) : IGraph {
 

@@ -1,8 +1,8 @@
-package de.dikodam.kotlin.graph
+package de.dikodam.skotlindyard.graph
 
-import de.dikodam.kotlin.api.EdgeType
-import de.dikodam.kotlin.api.IEdge
-import de.dikodam.kotlin.api.IVertex
+import de.dikodam.skotlindyard.api.EdgeType
+import de.dikodam.skotlindyard.api.IEdge
+import de.dikodam.skotlindyard.api.IVertex
 
 data class Vertex(override val id: Int) : IVertex {
 

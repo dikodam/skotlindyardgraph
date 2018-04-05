@@ -15,6 +15,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.version>1.2.31</kotlin.version>
         <junit.version>4.12</junit.version>
+        <kotlin.compiler.jvmTarget>1.8</kotlin.compiler.jvmTarget>
     </properties>
 
     <dependencies>
@@ -25,9 +26,9 @@
         </dependency>
         <!--
         <dependency>
-            <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-test-junit</artifactId>
-            <version>${kotlin.version}</version>
+            <groupId>org.jetbrains.skotlindyard</groupId>
+            <artifactId>skotlindyard-test-junit</artifactId>
+            <version>${skotlindyard.version}</version>
             <scope>test</scope>
         </dependency>
         -->
@@ -62,6 +63,9 @@
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-maven-plugin</artifactId>
                 <version>${kotlin.version}</version>
+                <configuration>
+                    <jvmTarget>${kotlin.compiler.jvmTarget}</jvmTarget>
+                </configuration>
                 <executions>
                     <execution>
                         <id>compile</id>

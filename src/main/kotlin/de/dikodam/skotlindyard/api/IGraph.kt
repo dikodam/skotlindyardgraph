@@ -1,4 +1,4 @@
-package de.dikodam.kotlin.api
+package de.dikodam.skotlindyard.api
 
 interface IGraph {
     val vertices: Map<Int, IVertex>

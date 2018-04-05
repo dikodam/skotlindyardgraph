@@ -1,9 +1,9 @@
-package de.dikodam.kotlin
+package de.dikodam.skotlindyard
 
-import de.dikodam.kotlin.api.EdgeType
-import de.dikodam.kotlin.graph.Edge
-import de.dikodam.kotlin.graph.Graph
-import de.dikodam.kotlin.graph.Vertex
+import de.dikodam.skotlindyard.api.EdgeType
+import de.dikodam.skotlindyard.graph.Edge
+import de.dikodam.skotlindyard.graph.Graph
+import de.dikodam.skotlindyard.graph.Vertex
 import java.io.File
 import java.util.stream.Collectors
 
