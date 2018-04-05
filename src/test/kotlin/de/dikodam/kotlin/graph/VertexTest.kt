@@ -45,5 +45,8 @@ internal class VertexTest {
         val result = tested.getEdgesOfType(TAXI)
 
         assertEquals(result.size, 3)
+        for (edge in result) {
+            assertEquals(edge.type, TAXI)
+        }
     }
 }

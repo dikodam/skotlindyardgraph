@@ -26,6 +26,7 @@ internal class GraphTest {
     @Test
     @DisplayName("leerer Test")
     fun getNeighborsOf() {
+        tested.getNeighborsOf(tested.vertexAt(42))
     }
 
     @Test
