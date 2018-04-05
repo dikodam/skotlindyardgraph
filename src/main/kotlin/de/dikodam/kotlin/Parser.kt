@@ -10,8 +10,8 @@ import java.util.stream.Collectors
 
 typealias EdgeInfo = Triple<EdgeType, Int, Int>
 
-fun buildGraph(): Graph {
-    val adress = Thread.currentThread().contextClassLoader.getResource("scotlandYardGraph").file
+fun buildGraph(filename: String = "scotlandYardGraph"): Graph {
+    val adress = Thread.currentThread().contextClassLoader.getResource(filename).file
     val file = File(adress)
     val edgeInfos = readLinesFromFile(file).map { extractEdgeInfoFromLine(it) }
     val vertices = extractVertices(edgeInfos)
