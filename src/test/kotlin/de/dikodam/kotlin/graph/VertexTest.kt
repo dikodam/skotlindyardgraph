@@ -17,13 +17,13 @@ internal class VertexTest {
     }
 
     @Test
-    @DisplayName("getter ID")
+    @DisplayName("getter: ID")
     fun getId() {
         assertEquals(tested.id, 42)
     }
 
     @Test
-    @DisplayName("edge setter and getter")
+    @DisplayName("getter/setter: edges")
     fun getAndSetEdges() {
         val injectedEdgeSet = setOf(DummyEdge(TAXI), DummyEdge(BUS), DummyEdge(METRO), DummyEdge(SHIP))
         tested.edges = injectedEdgeSet
@@ -31,7 +31,7 @@ internal class VertexTest {
     }
 
     @Test
-    @DisplayName("getter of typed edges")
+    @DisplayName("getter: typed edges")
     fun getEdgesOfType() {
         tested.edges = setOf(
             DummyEdge(TAXI),
@@ -45,6 +45,5 @@ internal class VertexTest {
         val result = tested.getEdgesOfType(TAXI)
 
         assertEquals(result.size, 3)
-
     }
 }

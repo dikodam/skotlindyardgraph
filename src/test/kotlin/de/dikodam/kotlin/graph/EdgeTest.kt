@@ -17,7 +17,6 @@ internal class EdgeTest {
     private lateinit var dummyVertex1: IVertex
     private lateinit var dummyVertex2: IVertex
 
-
     @BeforeEach
     fun setUp() {
         dummyVertex1 = DummyVertex(1)
@@ -26,13 +25,13 @@ internal class EdgeTest {
     }
 
     @Test
-    @DisplayName("vertices getter")
+    @DisplayName("getter: vertices")
     fun getVertices() {
         assertThat(tested.vertices, containsInAnyOrder(dummyVertex1, dummyVertex2))
     }
 
     @Test
-    @DisplayName("get other vertex")
+    @DisplayName("getter: other vertex of edge")
     fun getOtherVertex() {
         assertAll(
             Executable { assertEquals(dummyVertex2, tested.getOtherVertex(dummyVertex1)) },
@@ -41,14 +40,14 @@ internal class EdgeTest {
     }
 
     @Test
-    @DisplayName("get other vertex yields exception")
+    @DisplayName("getter: other vertex -> exception")
     fun getOtherVertexException() {
         val dummyVertex3 = DummyVertex(3)
         assertThrows(IllegalArgumentException().javaClass, { tested.getOtherVertex(dummyVertex3) })
     }
 
     @Test
-    @DisplayName("EdgeType getter")
+    @DisplayName("getter: EdgeType")
     fun getType() {
         val taxiEdge = Edge(EdgeType.TAXI, dummyVertex1, dummyVertex2)
         val busEdge = Edge(EdgeType.BUS, dummyVertex1, dummyVertex2)
