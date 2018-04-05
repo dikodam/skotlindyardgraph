@@ -2,7 +2,7 @@ package de.dikodam.kotlin.graph
 
 import de.dikodam.kotlin.api.EdgeType
 import de.dikodam.kotlin.api.IVertex
-import de.dikodam.kotlin.graph.dummyclasses.TestVertex
+import de.dikodam.kotlin.graph.dummyclasses.DummyVertex
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.containsInAnyOrder
 import org.junit.jupiter.api.Assertions.*
@@ -20,8 +20,8 @@ internal class EdgeTest {
 
     @BeforeEach
     fun setUp() {
-        dummyVertex1 = TestVertex(1)
-        dummyVertex2 = TestVertex(2)
+        dummyVertex1 = DummyVertex(1)
+        dummyVertex2 = DummyVertex(2)
         tested = Edge(EdgeType.METRO, dummyVertex1, dummyVertex2)
     }
 
@@ -43,7 +43,7 @@ internal class EdgeTest {
     @Test
     @DisplayName("get other vertex yields exception")
     fun getOtherVertexException() {
-        val dummyVertex3 = TestVertex(3)
+        val dummyVertex3 = DummyVertex(3)
         assertThrows(IllegalArgumentException().javaClass, { tested.getOtherVertex(dummyVertex3) })
     }
 

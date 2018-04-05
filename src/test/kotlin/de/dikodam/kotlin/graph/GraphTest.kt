@@ -1,7 +1,7 @@
 package de.dikodam.kotlin.graph
 
 import de.dikodam.kotlin.api.IGraph
-import de.dikodam.kotlin.graph.dummyclasses.TestVertex
+import de.dikodam.kotlin.graph.dummyclasses.DummyVertex
 import org.junit.jupiter.api.Assertions.assertAll
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
@@ -31,7 +31,7 @@ internal class GraphTest {
 
     @Test
     fun vertexAt() {
-        tested = Graph(vertices = mapOf(42 to TestVertex(42), 12 to TestVertex(12)), edges = emptySet())
+        tested = Graph(vertices = mapOf(42 to DummyVertex(42), 12 to DummyVertex(12)), edges = emptySet())
 
         assertAll(
             Executable { assertEquals(tested.vertexAt(42).id, 42) },

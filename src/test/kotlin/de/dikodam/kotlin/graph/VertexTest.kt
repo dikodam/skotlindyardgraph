@@ -1,9 +1,7 @@
 package de.dikodam.kotlin.graph
 
-import de.dikodam.kotlin.api.EdgeType
 import de.dikodam.kotlin.api.EdgeType.*
-import de.dikodam.kotlin.api.IEdge
-import de.dikodam.kotlin.api.IVertex
+import de.dikodam.kotlin.graph.dummyclasses.DummyEdge
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
@@ -12,16 +10,6 @@ import org.junit.jupiter.api.Test
 internal class VertexTest {
 
     lateinit var tested: Vertex
-
-    class TestEdge(override val type: EdgeType) : IEdge {
-        override fun getOtherVertex(notThis: IVertex): IVertex {
-            TODO("not implemented")
-        }
-
-        override val vertices: Set<IVertex>
-            get() = TODO("not implemented")
-
-    }
 
     @BeforeEach
     fun setUp() {
@@ -37,7 +25,7 @@ internal class VertexTest {
     @Test
     @DisplayName("edge setter and getter")
     fun getAndSetEdges() {
-        val injectedEdgeSet = setOf(TestEdge(TAXI), TestEdge(BUS), TestEdge(METRO), TestEdge(SHIP))
+        val injectedEdgeSet = setOf(DummyEdge(TAXI), DummyEdge(BUS), DummyEdge(METRO), DummyEdge(SHIP))
         tested.edges = injectedEdgeSet
         assertEquals(tested.edges, injectedEdgeSet)
     }
@@ -46,12 +34,12 @@ internal class VertexTest {
     @DisplayName("getter of typed edges")
     fun getEdgesOfType() {
         tested.edges = setOf(
-            TestEdge(TAXI),
-            TestEdge(TAXI),
-            TestEdge(TAXI),
-            TestEdge(BUS),
-            TestEdge(BUS),
-            TestEdge(METRO)
+            DummyEdge(TAXI),
+            DummyEdge(TAXI),
+            DummyEdge(TAXI),
+            DummyEdge(BUS),
+            DummyEdge(BUS),
+            DummyEdge(METRO)
         )
 
         val result = tested.getEdgesOfType(TAXI)
