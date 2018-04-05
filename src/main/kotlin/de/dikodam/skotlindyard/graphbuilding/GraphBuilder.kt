@@ -10,7 +10,7 @@ import java.io.File
 
 typealias EdgeInfo = Triple<EdgeType, Int, Int>
 
-fun buildGraph(file: File): Graph {
+fun buildGraph(file: File = getDefaultFile()): Graph {
     val edgeInfo = readLinesFromFile(file).map { extractEdgeInfoFromLine(it) }
     return buildGraph(edgeInfo)
 }
