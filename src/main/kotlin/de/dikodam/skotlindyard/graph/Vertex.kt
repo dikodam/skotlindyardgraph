@@ -23,4 +23,9 @@ data class Vertex(override val id: Int) : IVertex {
             .toSet()
     }
 
+    override fun toString(): String {
+        return edges
+            .map { "$id${it.type.singleChar}${it.getOtherVertexID(id)}" }
+            .joinToString(separator = "\n")
+    }
 }

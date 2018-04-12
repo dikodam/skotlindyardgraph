@@ -9,6 +9,7 @@ import de.dikodam.skotlindyard.graph.Graph
 import de.dikodam.skotlindyard.graph.Vertex
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.containsInAnyOrder
+import org.hamcrest.Matchers.containsString
 import org.junit.jupiter.api.Assertions.assertAll
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.BeforeEach
@@ -85,7 +86,6 @@ internal class GraphIntegrationTest {
                     vertices.getValue(4),
                     vertices.getValue(6)))
         }
-
         assertAll(taxiMove, blackMove)
     }
 
@@ -96,6 +96,14 @@ internal class GraphIntegrationTest {
         TODO()
         // 2 or 3 steps
         // impossible step -> emptySet
+    }
+
+    @Test
+    @DisplayName("toString")
+    fun graphToString() {
+        val expected = listOf("1t2", "1b4", "2t3", "2s5", "3u6", "4u5", "5t6")
+        val result = graph.toString()
+        expected.forEach { assertThat(result, containsString(it)) }
     }
 
 }

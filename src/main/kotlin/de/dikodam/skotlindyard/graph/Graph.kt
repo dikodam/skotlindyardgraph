@@ -39,8 +39,10 @@ class Graph(override val vertices: Map<Int, IVertex>, override val edges: Set<IE
         vertices.getValue(id)
 
     override fun toString(): String {
-        // TODO
-        return super.toString()
+        return vertices
+            .toSortedMap(Comparator(Int::compareTo))
+            .map { it.value.toString() }
+            .joinToString(separator = "\n")
     }
 
     private fun IEdge.isAllowedByMove(move: Move): Boolean {

@@ -10,4 +10,6 @@ fun main(args: Array<String>) {
     val graph = buildGraph(edgeInfo)
     graph.getNeighborsOf(199)
         .forEach { println(it) }
+    print("\n\n")
+    print(graph)
 }

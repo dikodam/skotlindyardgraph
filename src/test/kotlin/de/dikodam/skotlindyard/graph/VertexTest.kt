@@ -4,10 +4,13 @@ import de.dikodam.skotlindyard.api.EdgeType.*
 import de.dikodam.skotlindyard.graph.dummyclasses.DummyEdge
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.containsInAnyOrder
+import org.hamcrest.Matchers.containsString
+import org.junit.jupiter.api.Assertions.assertAll
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.function.Executable
 
 internal class VertexTest {
 
@@ -59,5 +62,23 @@ internal class VertexTest {
         tested.addEdge(DummyEdge(UNDERGROUND))
 
         assertThat(tested.getEdgeTypes(), containsInAnyOrder(TAXI, UNDERGROUND))
+    }
+
+    @Test
+    fun testToString() {
+        tested = Vertex(12)
+        tested.addEdge(DummyEdge(TAXI))
+        tested.addEdge(DummyEdge(UNDERGROUND))
+
+        println("edge count: " + tested.getAllEdges().size)
+
+        val result = tested.toString()
+
+        println(result)
+
+        assertAll(
+            Executable { assertThat(result, containsString("12t")) },
+            Executable { assertThat(result, containsString("12u")) }
+        )
     }
 }
