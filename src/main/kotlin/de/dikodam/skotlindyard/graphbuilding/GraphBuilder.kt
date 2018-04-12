@@ -6,14 +6,8 @@ import de.dikodam.skotlindyard.api.IVertex
 import de.dikodam.skotlindyard.graph.Edge
 import de.dikodam.skotlindyard.graph.Graph
 import de.dikodam.skotlindyard.graph.Vertex
-import java.io.File
 
 typealias EdgeInfo = Triple<EdgeType, Int, Int>
-
-fun buildGraph(file: File = getDefaultFile()): Graph {
-    val edgeInfo = readLinesFromFile(file).map { extractEdgeInfoFromLine(it) }
-    return buildGraph(edgeInfo)
-}
 
 fun buildGraph(edgeInfo: Collection<EdgeInfo>): Graph {
     val vertices = extractVertices(edgeInfo)
